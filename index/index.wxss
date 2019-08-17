@@ -1,0 +1,16 @@
+.body {
+  background-color: #eeeeee;
+  width: 100vw;
+  height: 100vh;
+}
+.canvans {
+  width: 100vw;
+  height: 56.25vw;
+  background-color: white;
+}
+.btns {
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center
+}

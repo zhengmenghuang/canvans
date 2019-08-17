@@ -1,0 +1,8 @@
+<view class="body">
+  <canvas class="canvans" disable-scroll="true" canvas-id="canvas" bindtouchstart='onTouchStart' bindtouchmove='onTouchMove' bindtouchend="onTouchEnd"></canvas>
+  <view class="btns">
+    <button type="primary" size="mini" bindtap="clearCanvans">清除</button>
+    <button type="primary" size="mini" bindtap="redo" disabled="{{redoList.length < 2}}">重做</button>
+    <button type="primary" size="mini" bindtap="undo" disabled="{{!undoList.length}}">撤销</button>
+  </view>
+</view>
