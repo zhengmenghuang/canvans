@@ -25,7 +25,7 @@ Page({
         x: res.width,
         y: res.height
       }
-    }).exec()
+    }).exec();
 
     // 初始化白板
     ctx = wx.createCanvasContext('canvas', this);
@@ -57,7 +57,7 @@ Page({
         // 设置线条宽度
         ctx.setLineWidth(3);
          // 让线条圆润
-        ctx.setLineCap('round')
+        ctx.setLineCap('round');
         // 开始绘画
         ctx.beginPath();
         ctx.moveTo(event.x, event.y);
@@ -77,19 +77,19 @@ Page({
   },
   // 画笔结束
   onTouchEnd() {
+    // 画笔结束时 对redoList池子里加一条记录 并且清空undoList池子
     setTimeout(() => {
       this.savaCanvans();
     }, 100);
   },
   // canvans快照
   savaCanvans() {
-    // 画笔结束时 对redoList池子里加一条记录 并且清空undoList池子
     wx.canvasToTempFilePath({
       x: 0,
       y: 0,
       canvasId: 'canvas',
       success: (res) => {
-        this.data.redoList.unshift(res.tempFilePath)
+        this.data.redoList.unshift(res.tempFilePath);
         this.setData({
           redoList: this.data.redoList,
           undoList: []
@@ -101,12 +101,11 @@ Page({
   clearCanvans() {
     ctx.clearRect(0, 0, 1500, 1500);
     ctx.draw(true);
-    const redoList = this.data.redoList.pop()
+    const redoList = this.data.redoList.pop();
     this.setData({
       redoList: [redoList],
       undoList: []
-    })
-    console.log(this.data)
+    });
   },
   // 重做
   redo() {
