@@ -1,6 +1,6 @@
 var ctx = null; // 画板
 var timer = null; // 函数节流
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
